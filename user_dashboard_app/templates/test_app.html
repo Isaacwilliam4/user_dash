@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test App</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="header">
+
+        <h4>Test App</h4>
+        <a href="/all_users"><button class="btn btn-default bold">Dashboard</button></a>
+        <a href="/show_user"><button class="btn btn-default bold">Profile</button></a>
+        <a href="/logout"><button class="btn btn-primary" style="margin-left: 1000px;">Logout</button></a>
+        
+    </div>
+    <div id="user">
+        <h1>{{user.first_name}} {{user.last_name}}</h1>
+        <p>User ID: {{user.id}}</p>
+        <p>Registered On: {{user.created_at}}</p>
+        <p>Email Address: {{user.email}}</p>
+        <p>Description: {{user.desc}}</p>
+    </div>
+    <div id="postmessage">
+        <form action="/create_message/{{user.id}}" method='POST' class="form-group">
+            {% csrf_token %}
+            <label for="message" class="bold">Write a Message for {{user.first_name}}:</label>
+            <textarea name="message" cols="30" rows="5" class="form-control"></textarea>
+            <button class="btn btn-primary" style="margin: 5px;">Post</button>
+        </form>
+    </div>
+
+    <div id="messages">
+        {% for message in user.messages_for.all %}
+                <div class="message">
+                    <p>{{message.message}}</p> 
+                    <p>Posted by: {{message.from_user.first_name}} {{message.from_user.last_name}} on {{message.created_at}}</p>
+                    <div class="create_comment">
+                        <form action="/create_comment/{{user.id}}/{{message.id}}" method="POST" class="form-group">
+                            {% csrf_token %}
+                            <label for="comment">Comment:</label>
+                            <textarea name="comment" class="form-control" cols="20" rows="5"></textarea>
+                            <button class="btn btn-primary" style="margin: 5px;">Post</button>
+
+                        </form>
+                    </div>
+                    {% for comment in message.comments.all %}
+                        <div class="comment">
+                            <p>{{comment.user.first_name}} {{comment.user.last_name}} commented: {{comment.comment}}</p>
+                            
+                        </div>
+                    {% endfor %}
+                </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+*{
+    padding: 1px;
+    margin: 0px;
+}
+
+#wrapper{
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    width: 500px;
+    margin-left: 450px;
+    margin-top: 30px;
+}
+
+.errors{
+    color: red;
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    margin: 50px 50px;
+    font-size: x-large;
+    font-weight: bold;
+    
+}
+
+#header{
+    display: block;
+    margin-bottom: 20px;
+    border-bottom: 2px solid black;
+    padding: 5px;
+}
+
+#header h4{
+    display: inline;
+}
+
+.bold{
+    font-weight: bold;
+    color: blue;
+}
+
+h3{
+    display: inline-block;
+    width: 300px;
+}
+
+#header2{
+    padding: 20px;
+}
+
+#wrapper_admin_edit{
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    margin-left: 450px;
+    margin-top: 30px;
+}
+#admin_edit_user{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#admin_edit_password{
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+#user{
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    margin-left: 50px;
+}
+
+.message{
+    border: 2px solid blue;
+    border-radius: 5px;
+    padding: 30px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 300px;
+    width: 750px;
+}
+.create_comment{
+    padding: 10px;
+}
+
+.comment{
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 5px;
+}

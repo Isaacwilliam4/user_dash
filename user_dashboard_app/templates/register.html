@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        
+        <h1>Register</h1>
+        
+        <form action="create" class="form-group" method="POST">
+            {% csrf_token %}
+            <label for="email">Email:</label>
+            <input type="email" name="email" class="form-control">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" class="form-control">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" class="form-control">
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control">
+            <label for="confirm">Confirm Password:</label>
+            <input type="password" name="confirm" class="form-control"><br>
+            <button class="btn btn-primary">Register</button>
+        </form>
+        <a href="/">Already have an account? Login.</a>
+
+    </div>
+    <div class="errors">
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
