@@ -54,7 +54,11 @@
                     <td><a href="/show_user/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></td>
                     <td>{{user.email}}</td>
                     <td>{{user.created_at}}</td>
-                    <td>{{user.user_lvl}}</td>
+                    {% if user.user_lvl == 9%}
+                        <td>Admin</td>
+                    {% else %}
+                        <td>Normal</td>
+                    {% endif %}
                     <script>
                         function redirect(){
                             window.location.href = "/remove/{{user.id}}";
