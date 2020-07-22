@@ -28,12 +28,7 @@
                     <input type="text" name="first_name" class="form-control" value="{{user.first_name}}">
                     <label for="last_name">Last Name:</label>
                     <input type="text" name="last_name" class="form-control" value="{{user.last_name}}">
-                    <label for="user_lvl">User Level</label>
-                    <select name="user_lvl" class="form-control">
-                        <option value='9'>Admin</option>
-                        <option value='1'>Normal</option>
-                    </select><br>
-                    
+                    <input type="hidden" value="{{user.user_lvl}}" name="user_lvl">
                     <button class="btn btn-success">Save</button>
         
                 </form>

@@ -126,8 +126,11 @@ def admin_edit_user(request, user_id):
     user.email = request.POST['email']
     user.first_name = request.POST['first_name']
     user.last_name = request.POST['last_name']
+    user.user_lvl = request.POST['user_lvl']
+    user.desc = request.POST['desc']
     user.save()
-    return redirect(f'/admin_edit/{user.id}')
+    return redirect('/all_users')
+
 
 def admin_edit_password(request, user_id):
     errors = User.objects.admin_edit_password(request.POST)
