@@ -76,9 +76,15 @@ def logout(request):
     return redirect('/')
 
 def add_new(request):
+    if 'user_id' not in request.session:
+        return redirect('/')
+
     return render(request, 'add_new.html')
 
 def add_new_user(request):
+    if 'user_id' not in request.session:
+        return redirect('/')
+
     errors = User.objects.basic_validator(request.POST)
 
     if errors:
@@ -106,6 +112,9 @@ def add_new_user(request):
     return redirect('/all_users')
 
 def admin_edit(request, user_id):
+    if 'user_id' not in request.session:
+        return redirect('/')
+
     user = User.objects.get(id=user_id)
     context = {
         'user' : user
@@ -148,6 +157,9 @@ def admin_edit_password(request, user_id):
     return redirect(f'/admin_edit/{user.id}')
 
 def show_user(request):
+    if 'user_id' not in request.session:
+        return redirect('/')
+
     user = User.objects.get(id=request.session['user_id'])
     context = {
         'user' : user
@@ -155,6 +167,9 @@ def show_user(request):
     return render(request, 'show_user.html', context)
 
 def show_user_id(request,user_id):
+    if 'user_id' not in request.session:
+        return redirect('/')
+        
     user = User.objects.get(id=user_id)
     
     context = {
