@@ -6,11 +6,12 @@
 #wrapper{
     display: inline-block;
     padding: 20px;
-    border: 2px solid #000000;
+    border: 2px solid lightgrey;
     border-radius: 5px;
     width: 500px;
-    margin-left: 450px;
+    margin-left: 25%;
     margin-top: 30px;
+    width: 50%;
 }
 
 .errors{
@@ -37,7 +38,7 @@
 
 .bold{
     font-weight: bold;
-    color: blue;
+    color: black;
 }
 
 h3{
@@ -52,10 +53,11 @@ h3{
 #wrapper_admin_edit{
     display: inline-block;
     padding: 20px;
-    border: 2px solid #000000;
+    border: 2px solid lightgrey;
     border-radius: 5px;
-    margin-left: 450px;
+    margin-left: 25%;
     margin-top: 30px;
+    width: 50%;
 }
 #admin_edit_user{
     display: inline-block;
@@ -70,27 +72,28 @@ h3{
 
 #user{
     display: inline-block;
-    border: 2px solid black;
+    /* border: 2px solid lightblue; */
     border-radius: 5px;
     padding: 20px;
     margin-left: 50px;
 }
 
 .message{
-    border: 2px solid blue;
+    border: 2px solid lightgrey;
     border-radius: 5px;
     padding: 30px;
     font-weight: bold;
     display: inline-block;
-    margin-left: 300px;
-    width: 750px;
+    margin-left: 20%;
+    width: 60%;
+    margin-bottom: 2rem;
 }
 .create_comment{
     padding: 10px;
 }
 
 .comment{
-    border: 2px solid red;
+    border: 2px solid lightgrey;
     border-radius: 5px;
     padding: 5px;
 }
