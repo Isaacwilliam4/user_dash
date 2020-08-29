@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <div id="header">
+{% extends 'base.html' %}
 
-        <h4>Test App</h4>
-        <a href="/all_users"><button class="btn btn-default bold">Dashboard</button></a>
-        <a href="/show_user"><button class="btn btn-default bold">Profile</button></a>
-        <a href="/logout"><button class="btn btn-primary" style="margin-left: 1000px;">Logout</button></a>
+    {% block content %}
+
+    <div class="card mt-3">
+        <div class="card-body">
         
     </div>
     <div id="wrapper">
@@ -48,5 +37,8 @@
         </ul>
         {% endif %}
     </div>
-</body>
-</html>
+
+    </div>
+</div>
+
+    {% endblock %}

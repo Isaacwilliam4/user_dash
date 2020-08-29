@@ -79,7 +79,12 @@ def add_new(request):
     if 'user_id' not in request.session:
         return redirect('/')
 
-    return render(request, 'add_new.html')
+    current_user = User.objects.get(id=request.session['user_id'])
+    context = {
+        'current_user':current_user
+    }
+
+    return render(request, 'add_new.html', context)
 
 def add_new_user(request):
     if 'user_id' not in request.session:
@@ -117,7 +122,7 @@ def admin_edit(request, user_id):
 
     user = User.objects.get(id=user_id)
     context = {
-        'user' : user
+        'current_user' : user
     }
     return render(request, 'admin_edit.html', context)
 
@@ -162,7 +167,7 @@ def show_user(request):
 
     user = User.objects.get(id=request.session['user_id'])
     context = {
-        'user' : user
+        'current_user' : user
     }
     return render(request, 'show_user.html', context)
 
@@ -173,6 +178,7 @@ def show_user_id(request,user_id):
     user = User.objects.get(id=user_id)
     
     context = {
+        'current_user' : User.objects.get(id=request.session['user_id']),
         'user' : user,
     }
     return render(request, 'test_app.html', context)
